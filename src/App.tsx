@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Board from "./Board";
-import ResetButton from "./ResetButton";
 import './App.css';
 
 function createItems(): boolean[] {
@@ -33,9 +32,8 @@ function App() {
         <div className="App">
             <h1>Найди кольцо</h1>
             <p>Попыток: {attempts}</p>
+            <Board items={items} onCellClick={handleCellClick} resetGame={resetGame} />
             {isGameWon ? <div className="game-won">Вы победили!</div> : null}
-            <ResetButton onReset={resetGame} />
-            <Board items={items} onCellClick={handleCellClick} />
         </div>
     );
 }
